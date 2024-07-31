@@ -166,3 +166,8 @@ SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/private
 # VINTF
 DEVICE_MANIFEST_FILE := \
     $(COMMON_PATH)/config/manifest.xml
+
+# Inherit extra if exists
+ifeq ($(LINEAGE_BUILD),)
+-include vendor/extra/BoardConfigExtra.mk
+endif

@@ -201,3 +201,8 @@ PRODUCT_PACKAGES += \
 # Wakeupd
 PRODUCT_PACKAGES += \
     wakeupd
+
+# Inherit extra if exists
+ifeq ($(LINEAGE_BUILD),)
+$(call inherit-product-if-exists, vendor/extra/product.mk)
+endif
