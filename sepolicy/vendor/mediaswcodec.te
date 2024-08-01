@@ -1,1 +1,3 @@
 get_prop(mediaswcodec, vendor_minigbm_debug_prop)
+gpu_access(mediaswcodec)
+allow mediaswcodec gpu_device:chr_file { getattr ioctl map open read write };
