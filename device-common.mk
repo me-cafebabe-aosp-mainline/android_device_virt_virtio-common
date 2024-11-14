@@ -24,10 +24,6 @@ PRODUCT_PACKAGES += \
     gralloc.minigbm \
     mapper.minigbm
 
-# Graphics (Mesa)
-$(foreach vk_drv, virtio, \
-    $(eval PRODUCT_PACKAGES += vulkan.$(vk_drv)))
-
 # Init
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/init/init.virtio.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.virtio.rc
