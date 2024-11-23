@@ -60,6 +60,9 @@ BOARD_VENDOR_KERNEL_MODULES := \
                  $(wildcard $(VIRTUAL_DEVICE_KERNEL_MODULES_PATH)/*.ko))
 endif
 
+# Properties
+TARGET_VENDOR_PROP += $(COMMON_PATH)/configs/properties/vendor.prop
+
 # Recovery
 TARGET_RECOVERY_FSTAB_GENRULE := gen_fstab_virtio
 TARGET_RECOVERY_PIXEL_FORMAT := ARGB_8888
