@@ -8,14 +8,17 @@ soong_config_module_type {
 
 soong_config_string_variable {
     name: "PARTITION_SCHEME",
-    values: ["a", "ab"],
+    values: [
+        "a",
+        "ab",
+    ],
 }
 
 virtio_fstab_genrule {
     name: "gen_fstab_virtio",
     srcs: [
-        "fstab.virtio-common",
         ":fstab.virt-common",
+        "fstab.virtio-common",
     ],
     out: ["fstab.virtio"],
     soong_config_variables: {
@@ -45,7 +48,7 @@ genrule {
     name: "gen_fstab_virtio_gsi_sda",
     srcs: [":gen_fstab_virtio"],
     out: ["fstab.virtio.gsi.sda"],
-    tool_files: [ "fstab.sed.gsi.sda" ],
+    tool_files: ["fstab.sed.gsi.sda"],
     cmd: "sed -f $(location fstab.sed.gsi.sda) $(in) > $(out)",
 }
 
@@ -53,7 +56,7 @@ genrule {
     name: "gen_fstab_virtio_gsi_vdc",
     srcs: [":gen_fstab_virtio"],
     out: ["fstab.virtio.gsi.vdc"],
-    tool_files: [ "fstab.sed.gsi.vdc" ],
+    tool_files: ["fstab.sed.gsi.vdc"],
     cmd: "sed -f $(location fstab.sed.gsi.vdc) $(in) > $(out)",
 }
 
