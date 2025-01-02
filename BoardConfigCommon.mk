@@ -15,6 +15,9 @@ TARGET_GRUB_INSTALL_CONFIGS += $(COMMON_PATH)/bootmgr/grub/grub-install.cfg
 TARGET_REFIND_BOOT_CONFIG := $(COMMON_PATH)/bootmgr/rEFInd/refind-boot.conf
 TARGET_REFIND_INSTALL_CONFIG := $(COMMON_PATH)/bootmgr/rEFInd/refind-install.conf
 
+# Bootconfig
+TARGET_BOOTCONFIG_FILES += $(COMMON_PATH)/configs/misc/bootconfig.txt
+
 # Fstab
 ifeq ($(AB_OTA_UPDATER),true)
 $(call soong_config_set,VIRTIO_FSTAB,PARTITION_SCHEME,ab)
@@ -33,10 +36,7 @@ endif
 
 # Kernel
 BOARD_KERNEL_CMDLINE += \
-    console=tty0 \
-    androidboot.console=hvc0 \
-    androidboot.hardware=virtio \
-    androidboot.partition_map=vdb,userdata
+    console=tty0
 
 ifneq ($(wildcard $(TARGET_KERNEL_SOURCE)/Makefile),)
 TARGET_KERNEL_CONFIG += \
