@@ -3,3 +3,4 @@
 /dev/block/vda5		u:object_r:metadata_block_device:s0
 /dev/block/vda[7-9]	u:object_r:boot_block_device:s0
 /dev/block/vda10	u:object_r:boot_block_device:s0
+/dev/block/vda1[1-6]	u:object_r:vbmeta_block_device:s0
