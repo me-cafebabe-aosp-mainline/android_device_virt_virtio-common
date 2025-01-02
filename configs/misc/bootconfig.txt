@@ -1,0 +1,3 @@
+androidboot.console = hvc0
+androidboot.hardware = virtio
+androidboot.partition_map = vdb,userdata
